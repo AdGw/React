@@ -42,7 +42,7 @@ class AddProject extends Component {
           </div>
           <div>
             <label>Category</label><br />
-            <select type = "text" ref="title">
+            <select ref="category">
               {categoryOptions}
             </select>
           </div>
