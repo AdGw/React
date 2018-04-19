@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 
 class AddProject extends Component {
   constructor(){
       super();
       this.state = {
-        newProject:{}
+        newProject:{
+          id: uuid.v4()
+        }
       }
   }
 
@@ -46,7 +49,9 @@ class AddProject extends Component {
               {categoryOptions}
             </select>
           </div>
+          <br />
           <input type = "submit" value = "submit"/>
+          <br />
         </form>
       </div>
     );
