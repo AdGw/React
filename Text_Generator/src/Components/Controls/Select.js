@@ -8,18 +8,18 @@ class Select extends Component{
     }
   }
 
-  onChange(ev){
-    this.setState({value: ev.target.value}, function(){
+  onChange(e){
+    this.setState({value: e.target.value}, function(){
       this.props.onChange(this.state.value);
-    })
+    });
   }
 
   render(){
-    return(
+    return (
       <div>
         <select className="form-control" onChange={this.onChange.bind(this)}>
-          <option value = "true">Yes</option>
-          <option value = "false">No</option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
         </select>
       </div>
     )

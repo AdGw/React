@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Display extends Component{
+class Output extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -9,11 +9,11 @@ class Display extends Component{
   }
   render(){
     return(
-      <div className="display">
+      <div className= "well display">
         {this.props.value}
       </div>
     )
   }
 }
 
-export default Display;
+export default Output;
