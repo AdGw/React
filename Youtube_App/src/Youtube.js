@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 const API = 'AIzaSyAUWxQI4M2EkCph9Ot0oHIC3RIoCXCB8Bs';
 const channelID = 'UCOuO2BhvznP6ogU7oDFGwpA';
-const result = 10;
-//&part=snippet,id&order=date&maxResults=10
+const result = 5;
 
 let finalURL = `https://www.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelID}&part=snippet,id&order=date&maxResults=${result}`
 class Youtube extends Component{
@@ -20,7 +19,7 @@ class Youtube extends Component{
     fetch(finalURL)
       .then((response) => response.json())
       .then((responseJson) => {
-        const resultyt = responseJson.items.map(obj=> obj.id.videoId);
+        const resultyt = responseJson.items.map(obj=>"https://www.youtube.com/playlist?list="+obj.id.playlistId+"&output=embed");
         this.setState({resultyt})
         console.log(this.state.resultyt);
       })
@@ -33,14 +32,15 @@ class Youtube extends Component{
     console.log(finalURL)
     return(
       <div>
-        <button onClick ={this.clicked}>Get YT videos</button>
-        <div className = "youtube">
-          <iframe width="560" height="315"
-            src="https://www.youtube.com/embed/c6t3bW7kx6E"
-            frameBorder="0" allow="autoplay; encrypted-media"
-            allowFullScreen>
-          </iframe>
-        </div>
+        <button onClick ={this.clicked}>Get YT playlists</button>
+        {
+          this.state.resultyt.map((link,i)=>{
+            console.log(link);
+            let frame = <div key = {i} className = "youtube"><iframe width="800" height="600" src={link} frameBorder="0"></iframe></div>
+            return frame;
+          })
+        }
+        {this.frame}
       </div>
     );
   }
