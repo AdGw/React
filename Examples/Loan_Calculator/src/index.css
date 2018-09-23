@@ -1,93 +1,22 @@
-body {
-    min-width: 700px;
-    background: #fff;
-    color: #272932;
-  }
-  
-  .calcWrapper {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  .calcWrapper .case {
-    width: 450px;
-    background: #54AEFD;
-    border: 1px solid #272932;
-    border-radius: 2px;
-    text-align: center;
-    padding-bottom: 15px;
-  }
-  .calcWrapper .case p {
-    text-align: center;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 38px;
-    color: #fff;
-    margin: 10px;
-  }
-  .calcWrapper .case .inputField {
-    width: 380px;
-    font-size: 50px;
-    padding: 5px 15px 5px 0;
-    text-align: center;
-    margin-bottom: 5px;
-    border: 1px solid #1BB4CC;
-    background: #59656F;
-    color: #fff;
-  }
-  .calcWrapper .case .calcUI {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    space-between: space-between;
-    justify-content: center;
-  }
-  .calcWrapper .case .calcUI button {
-    width: 100px;
-    height: 100px;
-    border: 1px solid #272932;
-    background:#000; 
-     /*#fff1b9; */
-    font-family: "Ubuntu", sans-serif;
-    font-size: 90px;
-    color:#fff;
-  }
-  .calcWrapper .case .calcUI button:hover {
-    background: #fff1B9;
-      /*#67D5B5;*/
-    color: #272932;
-    cursor: pointer;
-  }
-  .calcWrapper .case .calcUI .dotBtn {
-    font-size: 30px;
-    padding-bottom:18px;
-    
-  }
-  .calcWrapper .case .calcUI .clearBtn {
-    font-size: 65px;
-  }
-  /*
-  .calcWrapper .case .calcUI.calcWrapper .case .calcUI .clearBtn:hover {
-    background: #ff7473;
-  }
-  */
-  .calcWrapper .case .calcUI .operationBtn:hover {
-    background: #84F109;
-  }
-  .calcWrapper .case .calcUI button:focus {
-    z-index: 3;
-  }
-  .calcWrapper .case .enterBtn {
-    width: 400px;
-    height: 60px;
-    border: 1px solid #272932;
-    /*background: #67D5B5;*/
-    background: #1BB4CC;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 45px;
-    color:white;
-  }
-  .calcWrapper .case .enterBtn:hover {
-    /*background: #F10B09;*/
-    cursor: pointer;
-  }
-  
+body{
+    font-family: 'Roboto', "Sans Serif";
+    font-size:16px;
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    background-color: #03A9F4;
+    padding: 14px;
+}
+
+h1,h2{
+    font-weight: 300;
+}
+
+header > h1{
+    font-weight: 300;
+    font-size: 24px;
+    margin:0;
+    color: #ffffff;
+}
