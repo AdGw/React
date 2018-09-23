@@ -19,8 +19,8 @@ let calculatePayment =(principal, years, rate)=>{
     return {monthlyPayment: monthlyPayment};
 };
 
-let Header = React.createClass({
-    render : ()=>{
+var Header = React.createClass({
+    render : function(){
         return(
             <header>
                 <h1>{this.props.title}</h1>
@@ -29,4 +29,56 @@ let Header = React.createClass({
     }
 });
 
-ReactDOM.render(<calculatePayment />, document.getElementById('root'));
+let MortgageCalculator = React.createClass({
+    getInitialState: ()=>{
+        return{
+            principal: this.props.principal,
+            years: this.props.years,
+            rate: this.props.rate
+        };
+    },
+    principalChange: (event)=>{
+        this.setState({principal: event.target.value});
+    },
+    yearsChange: (event)=>{
+        this.setState({years: event.target.value});
+    },
+    rateChange: (event)=>{
+        this.setState({rate: event.target.value});
+    },
+    render: ()=>{
+        let payment = calculatePayment(this.state.principal, this.state.years, this.state.rate);
+        let monthlyPayment = payment.monthlyPayment;
+        return(
+            <div classname = "content">
+                <div classname = "form">
+                    <div>
+                        <label>Principal:</label>
+                        <input type = "text" value = {this.state.principal} onChange = {this.principalChange}/>
+                    </div>
+                    <div>
+                        <label>Years:</label>
+                        <input type = "text" value = {this.state.years} onChange = {this.yearsChange}/>
+                    </div>
+                    <div>
+                        <label htmlFor = "rate">Rate:</label>
+                        <input type = "text" value = {this.state.rate} onChange = {this.rateChange}/>
+                    </div>
+                </div>
+                <h2>Monthly Payment: <span className = "currency">{Number(monthlyPayment.toFixed(2)).toLocaleString()}</span></h2>
+            </div>
+        );
+    }
+});
+
+var App = React.createClass({
+    render: function(){
+        return(
+            <div>
+                <Header title = "React Loan Calculator"/>
+                <MortgageCalculator principal = "200000" years = "30" rate = "5"/>
+            </div>
+        );
+    }
+});
+ReactDOM.render(<App />, document.getElementById('root'));
