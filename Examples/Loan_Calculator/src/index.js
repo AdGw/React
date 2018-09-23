@@ -18,8 +18,8 @@ let calculatePayment =(principal, years, rate)=>{
     }
     return {monthlyPayment: monthlyPayment};
 };
-
-var Header = React.createClass({
+let createReactClass = require('create-react-class');
+let Header = createReactClass({
     render : function(){
         return(
             <header>
@@ -29,29 +29,29 @@ var Header = React.createClass({
     }
 });
 
-let MortgageCalculator = React.createClass({
-    getInitialState: ()=>{
+let MortgageCalculator = createReactClass({
+    getInitialState: function(){
         return{
             principal: this.props.principal,
             years: this.props.years,
             rate: this.props.rate
         };
     },
-    principalChange: (event)=>{
+    principalChange: function(event){
         this.setState({principal: event.target.value});
     },
-    yearsChange: (event)=>{
+    yearsChange: function(event){
         this.setState({years: event.target.value});
     },
-    rateChange: (event)=>{
+    rateChange: function(event){
         this.setState({rate: event.target.value});
     },
-    render: ()=>{
+    render: function(){
         let payment = calculatePayment(this.state.principal, this.state.years, this.state.rate);
         let monthlyPayment = payment.monthlyPayment;
         return(
-            <div classname = "content">
-                <div classname = "form">
+            <div className = "content">
+                <div className = "form">
                     <div>
                         <label>Principal:</label>
                         <input type = "text" value = {this.state.principal} onChange = {this.principalChange}/>
@@ -71,8 +71,8 @@ let MortgageCalculator = React.createClass({
     }
 });
 
-var App = React.createClass({
-    render: function(){
+let App = createReactClass({
+    render: ()=>{
         return(
             <div>
                 <Header title = "React Loan Calculator"/>
