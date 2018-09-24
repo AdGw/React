@@ -6,15 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Brad Traversy",
+  "author": "adgw",
   "license": "ISC",
   "devDependencies": {
     "browserify": "*",
     "flux": "*",
-    "gulp": "*",
+    "gulp": "^4.0.0",
+    "object-assign": "*",
     "reactify": "*",
-    "vinyl-source-stream": "*",
-    "object-assign": "*"
+    "vinyl-source-stream": "*"
   },
   "dependencies": {
     "react": "^0.14.7",
