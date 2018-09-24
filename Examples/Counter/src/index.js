@@ -18,10 +18,29 @@ let Product = createReactClass({
                 <p>Game - $50</p>
                 <button onClick={this.buy}>Buy</button>
                 <h4>Qty: {this.state.qty} item(s)</h4>
+                <hr/>
             </div>
         );
     }
 });
 
-ReactDOM.render(<Product />, document.getElementById('root'));
+let Total = createReactClass({
+    render: ()=>(
+        <div>
+            <h3>Total Cash: </h3>
+        </div>
+    )
+});
+
+let ProductList = createReactClass({
+    render: ()=>(
+        <div>
+            <Product/>
+            <Product/>
+            <Product/>
+        </div>   
+    )
+});
+
+ReactDOM.render(<ProductList />, document.getElementById('root'));
 
