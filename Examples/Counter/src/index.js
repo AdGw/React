@@ -39,6 +39,29 @@ let Total = createReactClass({
     }
 });
 
+let ProductForm = createReactClass({
+    submit:function(e){
+        e.preventDefault();
+        let product ={
+            name : this.refs.name.value,
+            price: parseInt(this.refs.price.value)
+        }
+        this.props.handleCreate(product);
+        this.refs.name.value = "";
+        this.refs.price.value = "";
+    },
+    render: function(){
+        return(
+            <form onSubmit={this.submit}>
+                <input type = "text" placeholder = "Product Name" ref = "name"/> - {" "}
+                <input type = "text" placeholder = "Product Price" ref = "price"/>
+                <br/>
+                <button >Create Product</button>
+            </form>
+        );
+    },
+});
+
 let ProductList = createReactClass({
     getInitialState:function(){
         return{
@@ -54,6 +77,13 @@ let ProductList = createReactClass({
             ]
         };
     },
+
+    createProduct: function(product){
+        this.setState({
+            productList: this.state.productList.concat(product)
+        })
+    },
+
     showProduct:function(name){
         alert('You selected ' + name);
     },
@@ -73,6 +103,7 @@ let ProductList = createReactClass({
         })
         return(
         <div>
+            <ProductForm handleCreate = {this.createProduct}/>
             {products}
             <Total total= {this.state.total}/>
         </div>   
