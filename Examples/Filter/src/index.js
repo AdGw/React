@@ -15,7 +15,8 @@ let store = createStore(
 render(
     <Provider store = {store}>
         <AppComponent />
-    </Provider>
-)
-document.getElementById('root');
+    </Provider>,
+    document.getElementById('root')
+);
+
 
