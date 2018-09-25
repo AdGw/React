@@ -4,7 +4,7 @@ import Select from 'react-select';
 // import 'react-select/dist/react-select.css';
 
 import { connect } from 'react-redux';
-import { fetchInfo } from './actions_info';
+// import { fetchInfo } from './actions_info';
 
 class AppComponent extends Component {
   constructor(props){
@@ -15,7 +15,20 @@ class AppComponent extends Component {
     };
   }
   componentDidMount(){
-    this.props.dispatch(fetchInfo())
+    // this.props.dispatch(fetchInfo())
+    return fetch('http://www.json-generator.com/api/json/get/cqJjWyLJua?indent=2',{
+      method: 'GET'
+  })
+  .then(response => response.json())
+  .then(json =>{
+    this.setState({
+      jsonList: json 
+    })
+      console.log(json)
+  })
+  .catch(error=>{
+      console.log(error)
+  });
   }
 
   handleChange(selectedOption){
