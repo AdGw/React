@@ -10,8 +10,15 @@ class Profile extends Component {
     }
   }
   componentDidMount(){
+    this.props.fetchProfile()
   }
-  
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      userInfo: nextProps.profile
+    });
+  }
+
   updateValue(type, event){
     let userInfoCopy = JSON.parse(JSON.stringify(this.state.userInfo));
     userInfoCopy[type] = event.target.value;

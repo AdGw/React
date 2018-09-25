@@ -6,7 +6,7 @@ export function fetchProfile(){
         let header = new Headers({
             "Content-Type":"application/json",
             //Your's github token value
-            "Authorization": "token" + ""
+            "Authorization": "token" + "f374cfa7acf6a4d90f9788f5286ba47df944219b"
           });
         return fetch('https://api.github.com/users/adgw',{
             method: 'GET',
