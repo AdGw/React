@@ -10,26 +10,8 @@ class Profile extends Component {
     }
   }
   componentDidMount(){
-    let header = new Headers({
-      "Content-Type":"application/json",
-      "Authorization": "token 5a503a1f17491a909209057c40329cc233bf37e5"
-    });
-    return fetch('https://api.github.com/users/adgw',{
-      method: 'GET',
-      headers: header
-    })
-    .then(response => response.json())
-    .then(json =>{
-      this.setState({
-        userInfo: json
-      })
-      console.log(json)
-      console.log(this.state.name)
-    })
-    .catch(error=>{
-      console.log(error)
-    });
   }
+  
   updateValue(type, event){
     let userInfoCopy = JSON.parse(JSON.stringify(this.state.userInfo));
     userInfoCopy[type] = event.target.value;
