@@ -87,7 +87,7 @@ class AppComponent extends Component {
                       {
                         this.state.jsonList.map(item=>{
                           console.log(this.state.selectedOption)
-                          if(this.state.selectedOption===''||item.name===this.state.selectedOption.value){
+                          if(this.state.selectedOption===' '||item.name===this.state.selectedOption.value){
                             return(
                               <tr>
                                 <td>{item.name}</td>
