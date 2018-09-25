@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Table} from 'react-bootstrap';
-import Slider from './Slider';
+import SliderComponent from './Slider';
 import Profile from './Profile';
 
 class App extends Component {
@@ -27,7 +27,7 @@ class App extends Component {
           </Nav>
         </Navbar>
         <div>
-          {this.state.currentTab === 'slider'? <Slider/> : false}
+          {this.state.currentTab === 'slider'? <SliderComponent/> : false}
           {this.state.currentTab === 'profile'? <Profile/> : false}
         </div>
       </div>
