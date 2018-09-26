@@ -1,12 +1,10 @@
-import characters_json from '../data/characters.json';
+import { combineReducers} from 'redux';
 
-function characters(
-    state=characters_json, action
-    ){
-    switch(action.type){
-        default:
-        return state;
-    }
-}
+import characters from './characters_reducer';
+import heroes from './heroes_reducer';
 
-export default characters;
+const rootReducer = combineReducers({
+    characters,
+    heroes
+})
+export default rootReducer;
