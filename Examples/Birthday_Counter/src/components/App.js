@@ -8,13 +8,15 @@ class App extends Component{
         super();
         this.state={
             newDate: '',
-            birthday: '1993-07-01'
+            birthday: '1993-07-01',
+            showStats: false
         }
     }
     changeBirthday(){
         console.log(this.state)
         this.setState({
-            birthday: this.state.newDate
+            birthday: this.state.newDate,
+            showStats: true
         });
     }
     render(){
@@ -30,7 +32,11 @@ class App extends Component{
                     <Button onClick={()=>this.changeBirthday()}>
                         Submit
                     </Button>
+                    {
+                        this.state.showStats ?
                     <AgeStats date = {this.state.birthday}/>
+                    : <div></div>
+                    }
                 </Form>
             </div>
         )
