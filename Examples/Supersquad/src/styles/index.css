@@ -19,3 +19,7 @@ body{
 .list-item{
     display: inline;
 }
+
+.left{
+    text-align: left;
+}
