@@ -1,0 +1,10 @@
+body{
+    text-align: center;
+    padding: 5%;
+}
+
+.form-control{
+    text-align: center;
+    width: 25%;
+    display: inline;
+}
