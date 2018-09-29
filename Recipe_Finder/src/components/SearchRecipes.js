@@ -14,6 +14,11 @@ class SearchRecipes extends Component {
             ingrediens, dish
         }=this.state;
         const url = `http://www.recipepuppy.com/api/?i=${ingrediens}&q=${dish}`;
+        fetch(url,{
+            method: 'GET'
+        })
+        .then(response=>response.json())
+        .then(json => console.log(json))
     }
 
     render() {
