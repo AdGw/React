@@ -39,3 +39,9 @@ body{
     font-size: 28px;
     margin-right: 15px;
 }
+
+.link{
+    position: absolute;
+    top:50px;
+    left:30px;
+}
