@@ -9,7 +9,7 @@ class RecipeList extends Component {
         {
             this.props.recipes.map((recipe, index)=>{
                 return(
-                    <RecipeItem key = {index} recipe={recipe}/>
+                    <RecipeItem favoriteButton = {true} key = {index} recipe={recipe}/>
                 )
             })
         }

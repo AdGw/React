@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SearchRecipes from './SearchRecipes'
 import RecipeList from './RecipeList'
 import '../styles/styles.css';
+import FavoriteRecipeList from './FavoriteRecipeList'
 
 class App extends Component {
   render() {
@@ -10,6 +11,7 @@ class App extends Component {
         <h3>Recipe Finder</h3>
         <SearchRecipes />
         <RecipeList/>
+        <FavoriteRecipeList/>
       </div>
     )
   }
