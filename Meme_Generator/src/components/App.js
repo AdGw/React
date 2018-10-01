@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import '../styles/style.css'
 import MemeItem from './MemeItem'
 import {Form, FormGroup, FormControl, ControlLabel} from 'react-bootstrap'
+import MyMemes from './MyMemes'
 
 class App extends Component {
   constructor(){
@@ -16,6 +17,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <MyMemes/>
         <h4><i>Write some text</i></h4>
         <Form>
           <FormGroup>
@@ -44,7 +46,11 @@ class App extends Component {
         {
           this.props.memes.slice(0,this.state.memeLimit).map((meme, index)=>{
             return(
-              <MemeItem key = {index} meme = {meme} text0={this.state.text0} text1={this.state.text1}/>
+              <MemeItem key = {index} 
+              meme = {meme} 
+              text0={this.state.text0} 
+              text1={this.state.text1}
+              />
             )
           })
         }

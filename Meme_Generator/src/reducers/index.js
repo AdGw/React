@@ -13,7 +13,7 @@ function memes(state = [], action){
 function myMemes(state= [], action){
     switch(action.type){
         case NEW_MEME:
-            state = [...state, action.memes]
+            state = [...state, action.meme]
             return state
         default:
             return state;
