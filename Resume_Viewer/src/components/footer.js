@@ -4,7 +4,6 @@ class Footer extends Component {
   render() {
     return (
 <footer>
-
 <div className="row">
    <div className="twelve columns">
       <ul className="social-links">
