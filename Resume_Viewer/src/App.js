@@ -40,9 +40,9 @@ class App extends Component {
     console.log(this.state.resumeData)
     return (
       <div className="App">
-        <Header/>
-        <About/>
-        <Resume/>
+        <Header data = {this.state.resumeData.main}/>
+        <About data = {this.state.resumeData.main}/>
+        <Resume data = {this.state.resumeData.resume}/>
         <Portfolio/>
         <Testimonials/>
         <Contact/>
