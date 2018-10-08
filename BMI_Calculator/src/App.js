@@ -58,7 +58,7 @@ class App extends Component {
             <Range  value = {this.state.weight} onChange={this.weightChange.bind(this)}/>
           </div>
         </form><br/>
-        <Output />
+        <Output data = {this.state} />
       </div>
     );
   }
