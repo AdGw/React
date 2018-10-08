@@ -8,8 +8,8 @@ class Range extends Component {
         }
       }
     static defaultProps ={
-        min:0,
-        max:245,
+        min:50,
+        max:215,
         step:1
     }
 
