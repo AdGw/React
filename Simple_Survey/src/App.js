@@ -15,6 +15,7 @@ class App extends Component {
       },
       submitted: false
     }
+    this.handleQuestionChange = this.handleQuestionChange.bind(this)
   }
 
   handleNameSubmit(event){
@@ -28,11 +29,69 @@ class App extends Component {
     event.preventDefault();
   }
 
+  handleQuestionSubmit(event){
+
+  }
+
+  handleQuestionChange(event){
+    let answers = this.state.answers
+    if(event.target.name === 'q1'){
+      answers.q1 = event.target.value
+    }else if(event.target.name === 'q2'){
+      answers.q2 = event.target.value
+    }
+    else if(event.target.name === 'q3'){
+      answers.q3 = event.target.value
+    }
+    else if(event.target.name === 'q4'){
+      answers.q4 = event.target.value
+    }
+    this.setState({
+      answers: answers},
+      function(){
+        console.log(this.state);
+      });
+  }
+
   render() {
     let user;
     let questions;
     if(this.state.name && this.state.submitted === false){
       user = <h2>Welcome {this.state.name}</h2>
+      questions = <span>
+        <h3>Survey Questions</h3>
+        <form onSubmit={this.handleQuestionSubmit.bind(this)}>
+          <div>
+            <label>What is your favorite operating system?</label><br/>
+            <input type = "radio" name = "q1" value = "Windows" onChange={this.handleQuestionChange}/>Windows<br/>
+            <input type = "radio" name = "q1" value = "OSX" onChange={this.handleQuestionChange}/>OSX<br/>
+            <input type = "radio" name = "q1" value = "Linux" onChange={this.handleQuestionChange}/>Linux<br/>
+            <input type = "radio" name = "q1" value = "Other" onChange={this.handleQuestionChange}/>Other<br/>
+          </div>
+          <div>
+            <label>What is your favorite brand of phone?</label><br/>
+            <input type = "radio" name = "q2" value = "Samsung" onChange={this.handleQuestionChange}/>Samsung<br/>
+            <input type = "radio" name = "q2" value = "Apple" onChange={this.handleQuestionChange}/>Apple<br/>
+            <input type = "radio" name = "q2" value = "LG" onChange={this.handleQuestionChange}/>LG<br/>
+            <input type = "radio" name = "q2" value = "Huawei" onChange={this.handleQuestionChange}/>Huawei<br/>
+            <input type = "radio" name = "q2" value = "Other" onChange={this.handleQuestionChange}/>Other<br/>
+          </div>
+          <div>
+            <label>What is your favorite brand of TV?</label><br/>
+            <input type = "radio" name = "q3" value = "Panasonic" onChange={this.handleQuestionChange}/>Panasonic<br/>
+            <input type = "radio" name = "q3" value = "Samsung" onChange={this.handleQuestionChange}/>Samsung<br/>
+            <input type = "radio" name = "q3" value = "Sony" onChange={this.handleQuestionChange}/>Sony<br/>
+            <input type = "radio" name = "q3" value = "Other" onChange={this.handleQuestionChange}/>Other<br/>
+          </div>
+          <div>
+            <label>What is your favorite CPU brand?</label><br/>
+            <input type = "radio" name = "q4" value = "Intel" onChange={this.handleQuestionChange}/>Intel<br/>
+            <input type = "radio" name = "q4" value = "AMD" onChange={this.handleQuestionChange}/>AMD<br/>
+            <input type = "radio" name = "q4" value = "Nvidia" onChange={this.handleQuestionChange}/>NVidia<br/>
+            <input type = "radio" name = "q4" value = "Other" onChange={this.handleQuestionChange}/>Other<br/>
+          </div>
+        </form>
+      </span>
     } else if(!this.state.name && this.state.submitted === false){
       user = <span>
         <h2>Please enter your name to begin the survey</h2>
@@ -45,12 +104,15 @@ class App extends Component {
 
     }
     return (
-      <div className="App text-center">
-        <div className = "App-header">
+      <div className="App ">
+        <div className = "App-header text-center">
           <h2>Simple Survey</h2>
         </div>
         <div className = "text-center">
           {user}
+        </div>
+        <div className = "container">
+          {questions}
         </div>
       </div>
     );
