@@ -4,8 +4,20 @@ import {EventEmitter} from 'events';
 
 const CHANGE_EVENT = 'change';
 let _contacts = [];
+
 function setContacts(contacts){
-    _contacts = contacts;
+    _contacts = contacts.sort(SortByName);
+}
+
+function setContact(contact){
+    _contacts.push(contact);
+    setContacts(_contacts);
+}
+
+function SortByName(a,b){
+    let aName = a.name.toLowerCase();
+    let bName = b.name.toLowerCase();
+    return ((aName < bName)?-1:((aName > bName)?1 : 0));
 }
 
 class AppStoreClass extends EventEmitter{
@@ -28,6 +40,21 @@ AppStore.dispatchToken = AppDispatcher.register(action =>{
     switch(action.actionType){
         case AppConstants.RECIEVE_CONTACTS:
             setContacts(action.contacts);
+            AppStore.emitChange();
+        break
+
+        case AppConstants.RECIEVE_CONTACTS_ERROR:
+            alert(action.message);
+            AppStore.emitChange();
+        break
+
+        case AppConstants.RECIEVE_CONTACT:
+            setContact(action.contact);
+            AppStore.emitChange();
+        break
+        
+        case AppConstants.RECIEVE_CONTACT_ERROR:
+            alert(action.message);
             AppStore.emitChange();
         break
         default:

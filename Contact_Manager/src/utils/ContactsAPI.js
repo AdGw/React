@@ -13,5 +13,19 @@ export default {
                     }
                 })
         })
+    },
+    saveContact:(url, contact)=>{
+        return new Promise((resolve, reject)=>{
+            request
+                .post(url)
+                .send(contact)
+                .end((err,response)=>{
+                    if(err){
+                        reject(err);
+                    }else{
+                        resolve(JSON.parse(response.text));
+                    }
+                })
+        })
     }
 }
