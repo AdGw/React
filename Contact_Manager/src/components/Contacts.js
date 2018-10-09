@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import {ListGroup} from 'react-bootstrap'
 import AppActions from '../actions/AppActions'
 import AppStore from '../stores/AppStore'
+import ContactListItem from './ContactListItem'
+
+function getContactsListItem(contact){
+    return(
+        <ContactListItem key={contact.id} contact={contact}/>
+    );
+}
 
 class Contacts extends Component {
     constructor(props){
@@ -25,16 +33,20 @@ class Contacts extends Component {
 
     onChange(){
         this.setState({
-            contacts :AppStore.getContacts()
-        }, function(){
-            console.log(this.state)
+            contacts : AppStore.getContacts()
         });
     }
 
     render() {
+        let contactListItems;
+        if(this.state.contacts){
+            contactListItems = this.state.contacts.map(contact=> getContactsListItem(contact))
+        }   
         return (
             <div>
-                CONTACTS
+                <ListGroup>
+                    {contactListItems}
+                </ListGroup>
             </div>
         );
     }
