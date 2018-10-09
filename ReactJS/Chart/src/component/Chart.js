@@ -6,7 +6,9 @@ class Chart extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data: props.data
+            data: props.data,
+            xScale: '',
+            yScale: ''
         }
     }
     static defaultProps = {
@@ -17,6 +19,30 @@ class Chart extends Component {
         barWidth: 40,
         barOffset: 5
     }
+
+    setXScale(){
+        let x = d3.scaleBand()
+        .domain(d3.range(0,this.state.data.length))
+        .range([0,this.props.width])
+        this.setState({
+            xScale: x
+        })
+    }
+
+    setYScale(){
+        let y = d3.scaleLinear()
+            .domain([0,d3.max(this.state.data)])
+            .range([0,this.props.height])
+        this.setState({
+            yScale: y
+        })
+    }
+
+    componentWillMount(){
+        this.setYScale();
+        this.setXScale();
+    }
+
     render() {
         const chart = ReactFauxDOM.createElement('div');
         d3.select(chart).append('svg')
@@ -28,11 +54,9 @@ class Chart extends Component {
             .enter().append('rect')
                 .style('fill', this.props.barColor)
                 .attr('width', this.props.barWidth)
-                .attr('height', (d)=>{
-                    return d;
-                })
-                .attr('x', (d, i)=> i * (this.props.barWidth + this.props.barOffset))
-                .attr('y', (d)=>this.props.height - d)
+                .attr('height', (d)=>this.state.yScale(d))
+                .attr('x', (d, i)=> this.state.xScale(i))
+                .attr('y', (d)=>this.props.height - this.state.yScale(d));
         return chart.toReact();
     }
 }
