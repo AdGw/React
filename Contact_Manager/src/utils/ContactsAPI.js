@@ -27,5 +27,18 @@ export default {
                     }
                 })
         })
+    },
+    deleteContact:(url)=>{
+        return new Promise((resolve, reject)=>{
+            request
+                .delete(url)
+                .end((err,response)=>{
+                    if(err){
+                        reject(err);
+                    }else{
+                        resolve(JSON.parse(response.text));
+                    }
+                })
+        })
     }
 }

@@ -43,8 +43,9 @@ class AddContact extends Component {
                     </FormGroup>
                     <FormGroup>
                         <input className = "form-control" type = "text" ref = "email" placeholder="Add Email"/>
-                    </FormGroup>
                     <Button type = "submit">Submit</Button>
+                    </FormGroup>
+                    
                 </form>
         );
     }
