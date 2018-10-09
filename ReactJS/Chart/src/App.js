@@ -6,7 +6,7 @@ class App extends Component {
     constructor(){
         super();
             this.state ={
-                data:[100,50,48,33,65,2,17,44]
+                data:[100,50,48,33,65,2,17,44,10,10,17]
             }
         }
     render() {
