@@ -21,11 +21,31 @@ class App extends Component {
         if(error){
           console.log(error);
           return;
-        }else{
-          console.log(profile)
         }
-      })
-    })
+        this.setData(authResult.idToken, profile);
+      });
+    });
+    this.getData();
+  }
+
+  getData(){
+    if(localStorage.getItem('idToken') !== null){
+      this.setState({
+        idToken: localStorage.getItem('idToken'),
+        profile: JSON.parse(localStorage.getItem('profile'))
+      }, ()=>{
+        console.log(this.state)
+      });
+    }
+  }
+
+  setData(idToken, profile){
+    localStorage.setItem('idToken', idToken);
+    localStorage.setItem('profile', JSON.stringify(profile));
+    this.setState({
+      idToken: localStorage.getItem('idToken'),
+      profile: JSON.parse(localStorage.getItem('profile'))
+    });
   }
 
   showLock(){
