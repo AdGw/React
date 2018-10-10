@@ -7,9 +7,19 @@ class Header extends Component {
         this.props.onLoginClick();
     }
 
+    onLogoutClick(){
+        this.props.onLogoutClick();
+    }
+
   render() {
+      let navItems;
+      if(this.props.idToken){
+        navItems = <NavItem onClick = {this.onLogoutClick.bind(this)} href = "#">Logout</NavItem>     
+      }else{
+        navItems = <NavItem onClick = {this.onLoginClick.bind(this)} href = "#">Login</NavItem>
+      }
     return (
-      <div className="header">
+        <div className="header">
         <Navbar>
             <Navbar.Header>
                 <Navbar.Brand>
@@ -17,12 +27,12 @@ class Header extends Component {
                 </Navbar.Brand>
             </Navbar.Header>
             <Nav>
-                <NavItem onClick = {this.onLoginClick.bind(this)} href = "#">Login</NavItem>
+                {navItems}
             </Nav>
         </Navbar>
-      </div>
+        </div>
     );
-  }
+    }
 }
 
 export default Header;

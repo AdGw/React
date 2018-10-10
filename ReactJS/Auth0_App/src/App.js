@@ -5,8 +5,16 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/Header'
 import Home from './components/Home'
+import Dashboard from './components/Dashboard'
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      idToken: '',
+      profile:{}
+    }
+  }
   static defaultProps = {
     clientId: '3ZTSqbhIGyIwGS-LItUYNAwWPiEaZDi3',
     domain: 'adgw.eu.auth0.com'
@@ -52,14 +60,37 @@ class App extends Component {
     this.lock.show();
   }
 
+  logout(){
+    this.setState({
+      idToken: '',
+      profile: ''
+    },()=>{
+      localStorage.removeItem('idToken');
+      localStorage.removeItem('profile');
+    })
+  }
+
   render() {
+    let page;
+    if(this.state.idToken){
+      page = <Dashboard 
+        lock = {this.lock}
+        idToken = {this.idToken}
+        profile = {this.profile}
+      />
+    }else{
+      page = <Home/>
+    }
     return (
       <div className="App">
-        <Header onLoginClick = {this.showLock.bind(this)}/>
+        <Header 
+        lock={this.lock} idToken = {this.state.idToken} profile = {this.state.profile}
+        onLoginClick = {this.showLock.bind(this)}
+        onLogoutClick = {this.logout.bind(this)}/>
         <Grid>
             <Row>
               <Col xs = {12} md = {12}>
-                <Home/>
+                {page}
               </Col>
             </Row>
         </Grid>
