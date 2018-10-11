@@ -1,0 +1,35 @@
+[
+    {
+        "id": 0,
+        "name": "Knight",
+        "level": 1,
+        "hp": 150,
+        "mana": 20,
+        "dmg": 25,
+        "items": 0
+    },{
+        "id": 1,
+        "name": "Druid",
+        "level": 1,
+        "hp": 150,
+        "mana": 20,
+        "dmg": 25,
+        "items": 0
+    },{
+        "id": 2,
+        "name": "Sorcerer",
+        "level": 1,
+        "hp": 150,
+        "mana": 20,
+        "dmg": 25,
+        "items": 0
+    },{
+        "id": 3,
+        "name": "Paladin",
+        "level": 1,
+        "hp": 150,
+        "mana": 20,
+        "dmg": 25,
+        "items": 0
+    }
+]
