@@ -13,13 +13,16 @@ class Layout extends Component {
                 <Col xs = {2} sm={2} md={2}>   
                     Profession
                     <br />
-                    <HeroList/>
                 </Col>
-                <Col xs = {2} sm={2} md={2}>
+                <Col xs = {1} sm={1} md={1}>
                     Level
                     <br />
                 </Col>
                 <Col xs = {2} sm={2} md={2}>
+                    Exp
+                    <br />
+                </Col>
+                <Col xs = {1} sm={1} md={1}>
                     Hp
                     <br/>
                 </Col>
@@ -35,6 +38,9 @@ class Layout extends Component {
                     Items
                     <br />
                 </Col>
+            </Row>
+            <Row>
+                <HeroList/>
             </Row>
         </Grid>
       </div>

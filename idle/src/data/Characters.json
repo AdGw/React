@@ -1,6 +1,7 @@
 [
     {
         "id": 0,
+        "exp": 0,
         "name": "Knight",
         "level": 1,
         "hp": 150,
@@ -9,6 +10,7 @@
         "items": 0
     },{
         "id": 1,
+        "exp": 0,
         "name": "Druid",
         "level": 1,
         "hp": 150,
@@ -17,6 +19,7 @@
         "items": 0
     },{
         "id": 2,
+        "exp": 0,
         "name": "Sorcerer",
         "level": 1,
         "hp": 150,
@@ -25,6 +28,7 @@
         "items": 0
     },{
         "id": 3,
+        "exp": 0,
         "name": "Paladin",
         "level": 1,
         "hp": 150,
