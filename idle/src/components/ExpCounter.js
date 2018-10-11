@@ -1,39 +1,40 @@
 import React, { Component } from 'react'
 import Mobs from '../data/Mobs.json'
-import {Grid, Row, Col} from 'react-bootstrap';
 
 class ExpCounter extends Component {
     constructor(props) {
         super(props);
-        this.state = { exp: 0 };
+        this.state = { exp: 0, name: '' };
       }
 
-      getExpFromMob(mobs){
-          mobs = Mobs[0].exp;
-          return mobs;
+      getExpFromMob(expMonster){
+        expMonster = Mobs[1].exp;
+          return expMonster;
+      }
+      getNamefromMob(nameMonster){
+        nameMonster = Mobs[1].name;
+        return nameMonster;
       }
 
-      tick(mobs) {
+      tick() {
         this.setState(prevState => ({
           exp: prevState.exp + this.getExpFromMob()
         }));
       }
 
       componentDidMount() {
-        this.interval = setInterval(() => this.tick(), 1000);
+        this.interval = setInterval(() => this.tick(), 300);
       }
 
       componentWillUnmount() {
         clearInterval(this.interval);
       }
-
+      
       render() {
-        // let mobs = Mobs[0].exp;
-        // console.log(mobs);
           return(
             <div>
                 <div>
-                    {this.state.exp}
+                    {this.state.exp} 
                 </div>
             </div>
         )

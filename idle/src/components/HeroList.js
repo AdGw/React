@@ -10,7 +10,7 @@ class HeroList extends Component {
       <div>
         {Characters.map((postDetail, index)=>{
             return(
-            <Grid >
+            <Grid key={index}>
                 <Row >
                     <Col xs = {2} sm={2} md={2}> 
                         <div>

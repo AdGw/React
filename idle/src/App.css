@@ -6,3 +6,13 @@
   margin-top: 50px;
   background-color: #ccc;
 }
+
+.input-group{
+  text-align: center;
+}
+
+.center-block {
+  display: table;  /* Instead of display:block */
+  margin-left: auto;
+  margin-right: auto;
+}
