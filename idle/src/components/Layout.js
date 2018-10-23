@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import HeroList from './HeroList'
-import Mobs from '../data/Mobs.json'
+import Selector from './Selector'
 import '../App.css'
 
 class Layout extends Component {
   render() {
     return (
       <div className="layout">
-        <label className="input-select">Monsters</label><br/>
-        <div class="input-group center-block">
-            <select className = 'form-control'>
-                <option value="">{Mobs[0].name}</option>
-                <option value="">{Mobs[1].name}</option>
-            </select>
-        </div>
+        <Selector/>
         <Grid className="show-grid layout">
             <Row >
                 <Col xs = {2} sm={2} md={2}>   
