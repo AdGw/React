@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import Mobs from '../data/Mobs.json'
-import Selector from './Selector'
-import handleChange from './Selector'
 
 class ExpCounter extends Component {
     constructor(props) {
@@ -33,10 +31,6 @@ class ExpCounter extends Component {
       }
       
       render() {
-        if(this.state.exp >= 1000){
-          let changeLevel = document.getElementsByClassName('col-md-1 col-sm-1 col-xs-1')[4].innerHTML = 2
-          return changeLevel
-        }
           return(
             <div>
                 <div>
