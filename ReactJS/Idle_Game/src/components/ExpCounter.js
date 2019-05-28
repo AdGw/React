@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Mobs from '../data/Mobs.json'
+import handleChange from '../components/Selector'
 
 class ExpCounter extends Component {
     constructor(props) {
@@ -18,7 +19,8 @@ class ExpCounter extends Component {
 
       tick() {
         this.setState(prevState => ({
-          exp: prevState.exp + this.getExpFromMob()
+          exp: prevState.exp + this.getExpFromMob(),
+          name: this.getNamefromMob()
         }));
       }
 
@@ -34,7 +36,9 @@ class ExpCounter extends Component {
           return(
             <div>
                 <div>
-                    {this.state.exp} 
+                    {/* {console.log(this.state.name)}
+                    {console.log(this.state.exp)} */}
+                    {this.props.exp} 
                 </div>
             </div>
         )

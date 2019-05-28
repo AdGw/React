@@ -4,16 +4,20 @@ import Mobs from '../data/Mobs.json'
 class Selector extends Component {
     constructor(props){
         super(props);
-        this.state = {exp: 0};
+        this.state = {
+            exp: Mobs[0].exp, 
+            name: Mobs[0].name
+        };
     }
 
 handleChange = event =>{
-    this.setState({exp: event.target.value});
+    this.setState({
+        exp: event.target.value,
+    });
     let updatedExp = event.target.value;
-    console.log(updatedExp);
     return updatedExp;
   }
-
+  
   render() {
     return (
       <div>
